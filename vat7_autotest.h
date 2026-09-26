@@ -370,6 +370,8 @@ void _ENG_autotest_run_tests (AT_TestSuite *);
 #define AT_RUN_TESTS \
 	_ENG_autotest_run_tests(&ENG_autotest_test_suite); \
 	return EXIT_SUCCESS
+// TODO Remove assumption user doesn't want to do anything after
+// running tests.
 
 
 /* SETUP AND TEARDOWN MACROS */
