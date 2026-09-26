@@ -1,4 +1,7 @@
-/* Header for a simple automated testing framework
+/* Copyright: (c) 2026 BrainInAVat7
+ * License: AGPL-3.0
+ *
+ * Header for a simple automated testing framework
  *
  * This framework provides macros for defining test cases, assertions
  * that generate useful messaging for failed test, and a
@@ -72,15 +75,15 @@
  */
 
 
-#ifndef ENGINE_AUTOTEST_H
-#define ENGINE_AUTOTEST_H
+#ifndef VAT7_AUTOTEST_H
+#define VAT7_AUTOTEST_H
 
 
-#include "engine_libc/eng_stdbool.h"
-#include "engine_libc/eng_stddef.h"
-#include "engine_libc/eng_stdint.h"
-#include "engine_libc/eng_stdio.h"
-#include "engine_libc/eng_stdlib.h"
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 
 /* TYPES
@@ -941,33 +944,4 @@ void _ENG_autotest_run_tests (AT_TestSuite *);
 		"%s", "ASSERT_BIT_NOT_SET (" #mask ", " #position ") failed")
 
 
-/* Functions to inject input or read output via the autotest platform
- * layer.
- *
- * When running autotest, input events, and clock information come
- * from a headless platform layer into which these functions allow
- * injecting desired inputs.
- *
- * Similarly, when running autotest, output like render buffers,
- * etc. are sent into the same headless platform layer from which
- * these functions allow reading the output.
- *
- * Together, this allows for testing functionality that depends on
- * the engine clock or user input, and checking that output sent to
- * the platform for presentation is correct.
- */
-
-
-/* Advance the test clock precision counter by a given count.
- * The test clock counter uses nanosecond increments for
- * convenience, but note that this is only nanoseconds relative
- * to the internal time defined by the test clock and does not
- * correspond to any particular real world wall clock time.
- *
- * Note: To get current internal time, use the standard engine
- * clock functions.
- */
-void AT_advance_test_clock_counter (uint64_t nanoseconds);
-
-
-#endif
+#endif  // Header Guard

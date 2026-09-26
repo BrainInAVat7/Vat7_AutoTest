@@ -1,4 +1,7 @@
-/* Source code for a simple automated testing framework
+/* Copyright: (c) 2026 BrainInAVat7
+ * License: AGPL-3.0
+ *
+ * Source code for a simple automated testing framework
  *
  * This framework provides macros for defining test cases, assertions that
  * generate useful messaging for failed test, and straightforward test
@@ -13,10 +16,11 @@
  */
 
 
-#include "engine_libc/eng_stdbool.h"
-#include "engine_libc/eng_stddef.h"
-#include "engine_libc/eng_stdio.h"
-#include "engine_tools/eng_autotest.h"
+#include <autotest.h>
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdio.h>
 
 
 /* Register a test in the test suite registry
